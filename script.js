@@ -125,7 +125,7 @@ const addToCart = (id) => {
 };
 
 const addToWishlist = (id) => {
-  if (wishlistItems.indexOf(id) === -1) {
+  if (wishlistItems.indexOf(id) === -1) { 
     wishlistItems.push(id);
   }
 };
@@ -141,11 +141,12 @@ const displayCart = () => {
 };
 
 const displayWishlist = () => {
-  const wishlist = getWishlistItems();
-  console.log(wishlist);
+  const wishlist = getWishlistItems();    
+  const wishlistContainer = document.getElementById("wishlist");
+  wishlistContainer.innerHTML = "";
 
-  bookList.forEach((book) => {
+  wishlist.forEach((book) => {
     const div = createCard(book);
-    document.getElementById("wishlist").appendChild(div);
+    wishlistContainer.appendChild(div); 
   });
 };
