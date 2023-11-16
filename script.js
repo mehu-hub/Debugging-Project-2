@@ -54,7 +54,7 @@ const getWishlistItems = () => {
   return bookList.filter((book) => wishlistItems.includes(book.id.toString()));
 };
 
-const getCartItems = () => {
+const getCartItems = () => { 
   return bookList.filter((book) => cart.includes(book.id.toString()));
 };
 
@@ -103,7 +103,7 @@ const createCard = (book) => {
 
     <div class="button-container">
       <button onclick="addToWishlist('${book.id}')" class="button"><i class="fa-solid fa-heart"></i></button>
-      <button onclick="AddToCart" class="button">Add To Cart</button>
+      <button onclick="addToCart('${book.id}')" class="button">Add To Cart</button>
     </div>
   </div>
   <div class="info-container">
@@ -120,8 +120,8 @@ const createCard = (book) => {
 
 showBooks(bookList);
 
-const addToCart = (id) => {
-  cart.push(id);
+const addToCart = (id) => { 
+  cart.push(id); 
 };
 
 const addToWishlist = (id) => {
@@ -133,10 +133,13 @@ const addToWishlist = (id) => {
 const displayCart = () => {
   const cart = getCartItems();
   console.log(cart);
-
+  const cartContainer = document.getElementById("cart");
+  cartContainer.innerHTML = "";
+  
   cart.forEach((book) => {
     const div = createCard(book);
-    document.getElementById("cart").appendChild(div);
+    document.getElementById("cart")
+    cartContainer.appendChild(div);
   });
 };
 
